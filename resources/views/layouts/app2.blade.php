@@ -9,7 +9,7 @@
 <body>
 <header>
        {{-- Navbar --}}
-       @include('layouts.navbar')
+       @include('layouts.navbar_inicio')
     </header>
     <main>
        @yield('contenido')

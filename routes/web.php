@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 //  return view('welcome');
 //});
 
-Route::resource("servicio", App\Http\Controllers\ServicioController::class);
+Route::view("/", "welcome");
 
-Route::resource("cliente", App\Http\Controllers\ClienteController::class);
+Route::resource("/servicios", App\Http\Controllers\ServicioController::class);
+
+Route::resource("/clientes", App\Http\Controllers\ClienteController::class);

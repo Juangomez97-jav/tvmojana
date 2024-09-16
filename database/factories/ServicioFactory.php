@@ -17,7 +17,10 @@ class ServicioFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre'=>fake()->word(),
+            'descripcion'=>fake()->text(),
+            'precio'=>fake()->numberBetween(20000, 50000),
+            'stock'=>fake()->numberBetween(10, 100)
         ];
     }
 }
