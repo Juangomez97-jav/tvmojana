@@ -26,6 +26,8 @@ class ClienteFactory extends Factory
             'poste'=>fake()->numberBetween(1, 450),
             'sucursal'=>fake()->word(),
             'estado'=>fake()->word(),
+            'servicio_id'=>now(),
+        
         ];
     }
 }

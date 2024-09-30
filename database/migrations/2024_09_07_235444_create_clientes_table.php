@@ -22,8 +22,11 @@ return new class extends Migration
             $table->integer("poste");
             $table->string("sucursal");
             $table->string("estado");
-            $table->foreignId("servicio_id")->constrained();
+            $table->unsignedBigInteger("servicio_id")->constrained();
             $table->timestamps();
+
+            $table->foreign("servicio_id")->refences("id")
+              ->on("servicios");
         });
     }
 
