@@ -16,11 +16,13 @@ return new class extends Migration
             $table->string("nombres");
             $table->string("apellidos");
             $table->integer("documento");
-            $table->integer("telefono");
+            $table->string("telefono");
             $table->string("barrio");
             $table->integer("calle");
             $table->integer("poste");
             $table->string("sucursal");
+            $table->string("estado");
+            $table->foreignId("servicio_id")->constrained();
             $table->timestamps();
         });
     }

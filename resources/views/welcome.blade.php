@@ -4,11 +4,15 @@
 
 @section('contenido')
 <div class="hero bg-base-250 min-h-screen">
-    <div>
-     <img src="https://picsum.photos/seed/picsum/100">
-    </div>
-  <div class="hero-content flex-col lg:flex-row-reverse">
+    
+  <div class="hero-content">
+    
     <div class="text-center lg:text-left">
+      <div class="flex justify-center">
+        <img width="200" src="fotos/TV Mojana sin fondo.png">
+      </div>
+      <br>
+      
       <h1 class="text-2xl font-bold">BIENVENIDO A TV MOJANA SAS</h1>
       <p class="py-6 text-center">
         Comprometidos con el desarrollo de la region.

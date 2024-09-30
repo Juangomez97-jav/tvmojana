@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use DB;
+
 
 class ClienteController extends Controller
 {
@@ -12,9 +14,12 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente ::all();
-        return view('clientes', compact ('clientes'));
+        $clientes = DB::table('Clientes','Servicios')
+        ->where('id','=', 1)
+        ->get();
+        return view('clientes.recaudo', ['clientes' => $clientes]); 
     }
+     
 
     /**
      * Show the form for creating a new resource.
@@ -35,15 +40,15 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cliente $cliente)
+    public function show()
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cliente $cliente)
+
+    public function edit(Reuest $request)
     {
         //
     }

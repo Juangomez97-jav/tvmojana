@@ -30,7 +30,8 @@ class ClienteController extends Controller
         'barrio'=>['required','string','max:20'],
         'calle'=>['required','integer','max:3'],
         'poste'=>['required','integer','max:4'],
-        'sucursal'=>['required','string','max:15']
+        'sucursal'=>['required','string','max:15'],
+        'servicio_id'=>['required','integer','min:1'],
         ]);
 
         //Guardar datos
@@ -66,7 +67,8 @@ class ClienteController extends Controller
             'barrio'=>['required','string','max:20'],
             'calle'=>['required','integer','max:3'],
             'poste'=>['required','integer','max:4'],
-            'sucursal'=>['required','string','max:15']
+            'sucursal'=>['required','string','max:15'],
+            'servicio_id'=>['required','integer','min:1'],
             ]);
     
             //Actualizar datos

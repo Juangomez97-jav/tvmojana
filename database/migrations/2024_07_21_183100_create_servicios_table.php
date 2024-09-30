@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("nombre");
             $table->string("descripcion")->nullable();
-            $table->integer("precio");
+            $table->string("precio");
             $table->integer("stock");
             $table->timestamps();
         });
