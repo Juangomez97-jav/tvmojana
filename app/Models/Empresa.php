@@ -5,16 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Servicio extends Model
+class Empresa extends Model
 {
     use HasFactory;
-
-    protected $fillable=["nombre","descripcion","precio","estado","empresa_id","empleado_id"];
-
-    public function empresas()
-    {
-        return $this->belongsToMany(Empresa::class)->withPivot('nombre');  
-    }
+    protected $fillable=["nombre","telefono","direccion","correo"];
 
     public function empleados()
     {

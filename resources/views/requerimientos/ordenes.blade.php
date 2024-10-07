@@ -25,6 +25,7 @@
         <tr>
           <th>ID</th>
           <th>NOMBRE</th>
+          <th>CLIENTE</th>
           <th>DESCRICCION</th>
           <th>TECNICO</th>
           <th>ESTADO</th>
@@ -35,9 +36,10 @@
       @foreach($requerimientos as $requerimiento) 
        <tr>
         <td>{{$requerimiento -> id}}</td>
-        <td>{{$requerimiento -> nombre}}</td>
+        <td>{{$requerimiento -> nombre_requerimiento}}</td>
+        <td>{{$requerimiento -> empleado_id}}</td>
         <td>{{$requerimiento -> descripcion}}</td>
-        <td>{{$requerimiento -> tecnico}}</td>
+        <td>{{$requerimiento -> nombre_empleado}}</td>
         <td>{{$requerimiento -> estado}}</td>
         <td><input type="checkbox"></td>
        </tr> 
@@ -53,10 +55,11 @@
      <div class="overflow-x-auto">
     <table class="table table-zebra bg-[#fef3c7]">
       
-      <thead class="bg-secundary text-[20px]">
+      <thead class="bg-[#3b82f6] text-[20px]">
         <tr>
           <th>ID</th>
           <th>NOMBRE</th>
+          <th>CLIENTE</th>
           <th>DESCRICCION</th>
           <th>TECNICO</th>
           <th>ESTADO</th>
@@ -67,9 +70,10 @@
       @foreach($requerimientos as $requerimiento) 
        <tr>
         <td>{{$requerimiento -> id}}</td>
-        <td>{{$requerimiento -> nombre}}</td>
+        <td>{{$requerimiento -> nombre_requerimiento}}</td>
+        <td>{{$requerimiento -> cliente_id}}</td>
         <td>{{$requerimiento -> descripcion}}</td>
-        <td>{{$requerimiento -> tecnico}}</td>
+        <td>{{$requerimiento -> nombre_empleado}}</td>
         <td>{{$requerimiento -> estado}}</td>
         <td><input type="checkbox"></td>
        </tr> 

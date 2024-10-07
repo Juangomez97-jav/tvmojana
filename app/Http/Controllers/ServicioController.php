@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Servicio;
+use App\Models\Empresa;
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 
 class ServicioController extends Controller
@@ -12,8 +14,8 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        $servicios = Servicio ::all();
-        return view('servicios.index', compact ('servicios'));
+        $servicios = Servicio::orderBy('nombre')->get();
+        return view('servicios.index', ['servicios' => $servicios]);
     }
 
     /**
@@ -21,7 +23,13 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        return view('servicios.create');
+        $empresas = Empresa::orderBy('nombre')->get();
+        $empleados = Empleado::orderBy('nombres')->get();
+        //si no existen empresas, redirigir a la vista de creación de empresas
+        if ($empresas->isEmpty()) {
+            return redirect()->route('empresas.create')->with('info', 'Primero debes crear una empresa');
+        }
+        return view('servicios.create', ['empresas' => $empresas],['empleados' => $empleados]);
     }
 
     /**
@@ -30,7 +38,7 @@ class ServicioController extends Controller
     public function store(Request $request)
     {
         Servicio::create($request->all());
-        return redirect()->route('servicios.index');
+        return redirect()->route('servicios.index')->with('info', 'Servicio creado con éxito');
     }
 
     /**
@@ -46,7 +54,9 @@ class ServicioController extends Controller
      */
     public function edit(Servicio $servicio)
     {
-        return view('servicios.edit',compact('servicio'));
+        $empresas = Empresa::all();
+        $empleados = Empleado::all();
+        return view('servicios.edit',['servicio' => $servicio, 'empresas' => $empresas, 'empleados' => $empleados]);
     }
 
     /**

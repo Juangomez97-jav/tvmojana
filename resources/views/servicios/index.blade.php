@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo','Servicios')
-
+@section('cabecera', 'Servicios')
 @section('contenido')
 <br>
 <div class="grid grid-cols-1 ms:grid-cols-1 md:grid-cols-1 lg:grid-cols-1">
@@ -16,21 +16,20 @@
     
     <thead class="bg-[#3b82f6] text-[20px]">
       <tr>
-        <th>ID</th>
+        <th>Empresa</th>
         <th>NOMBRE</th>
         <th>DESCRICCION</th>
-        <th>STOCK</th>
+        <th>ESTADO</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
     @foreach($servicios as $servicio)
-      
-      <tr type="btn">
-        <th>{{$servicio->id}}</button></th>
+      <tr>
+        <td>{{ $servicio->empresa->nombre }}</td>
         <td>{{$servicio->nombre}}</td>
         <td>{{Str::limit($servicio->descripcion, 50)}}</td>
-        <td>{{$servicio->stock}}</td>
+        <td>{{$servicio->estado}}</td>
         <td><div class="card-actions justify-center">
       <a href="{{ route('servicios.edit', $servicio->id) }}" class="btn btn-outline btn-xs">Editar</a>
       <form action="{{route('servicios.destroy', $servicio->id)}}" method="POST">

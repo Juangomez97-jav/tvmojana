@@ -20,7 +20,9 @@ class ServicioFactory extends Factory
             'nombre'=>fake()->word(),
             'descripcion'=>fake()->text(),
             'precio'=>fake()->numberBetween(20000, 50000),
-            'stock'=>fake()->numberBetween(10, 100),
+            'estado'=>fake()->word(),
+            'empleado_id'=>fake()->numberBetween(1, 100),
+            'empresa_id'=>fake()->numberBetween(1, 5),
         ];
     }
 }

@@ -18,9 +18,10 @@ class MaterialFactory extends Factory
     {
         return [
             'nombre'=>fake()->word(),
-            'precio'=>fake()->numberBetween(20000, 50000),
+            'precio'=>fake()->numberBetween(100, 100000),
             'descripcion'=>fake()->text(),
             'cantidad'=>fake()->numberBetween(2, 50),
+            'servicio_id'=>fake()->numberBetween(1, 10),
         ];
     }
 }

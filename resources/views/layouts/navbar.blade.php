@@ -21,6 +21,7 @@
   <div tabindex="0" role="button" class="btn m-1">Consultas</div>
   <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
             <li><a>Afiliados</a></li>
+            <li><a href="{{'empresas'}}">Empresas</a></li>
             <li><a href="{{'servicios'}}">Servicios</a></li>
             <li><a>Recaudo por dia</a></li>
             <li><a>Servicios vendidos</a></li>

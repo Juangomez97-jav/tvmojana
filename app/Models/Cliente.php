@@ -9,10 +9,10 @@ class Cliente extends Model
 {
     use HasFactory;
     
-    protected $fillable=["nombres","apellidos","documento","telefono","barrio","calle","poste","sucursal", "estado","servicio_id"];
+    protected $fillable=["documento","nombres","apellidos","telefono","barrio","calle","poste","correo","empresa_id","servicio_id"];
 
-    public function servicio()
+    public function estados()
     {
-        return $this->hasMany(Servicio::class);  // Un puede tener muchos servicios
+        return $this->belongsToMany(Estado::class);
     }
 }

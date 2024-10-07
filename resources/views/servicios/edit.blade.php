@@ -7,6 +7,29 @@
             <form class="card-body" action="{{ route('servicios.update', $servicio->id) }}" method="POST">
                 @csrf
                 @method('PUT')
+                {{-- Empresa --}}
+                <div class="form-control">
+                    <label class="label" for="empresa_id">
+                        <span class="label-text">Empresa</span>
+                    </label>
+                    <select name="empresa_id" class="select select-bordered">
+                        @foreach ($empresas as $empresa)
+                            <option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                 {{-- Empleado --}}
+                 <div class="form-control">
+                    <label class="label" for="empleado_id">
+                        <span class="label-text">Empleado</span>
+                    </label>
+                    <select name="empleado_id" class="select select-bordered">
+                        @foreach ($empleados as $empleado)
+                            <option value="{{ $empleado->id }}">{{ $empleado->nombres }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 {{-- Nombre --}}
                 <div class="form-control">
                     <label class="label">
@@ -31,9 +54,9 @@
                 {{-- Stock --}}
                 <div class="form-control">
                     <label class="label">
-                    <span class="label-text">Stock</span>
+                    <span class="label-text">Estado</span>
                     </label>
-                    <input type="number" name="stock" value="{{ $servicio->stock }}" placeholder="Stock" class="input input-bordered" required />
+                    <input type="text" name="estado" value="{{ $servicio->estado }}" placeholder="estado" class="input input-bordered" required />
                 </div>
                 {{-- Botones --}}
                 <div class="form-control mt-6">

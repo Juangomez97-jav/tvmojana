@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\EmpresaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,11 @@ Route::view('/','welcome')->name('home');
 
 Route::resource('servicios', ServicioController::class)->middleware('auth');
 
+Route::resource('clientes', ClienteController::class);
+
 Route::resource('recaudo', ClienteController::class);
+
+Route::resource('empresas', EmpresaController::class);
 
 Route::resource('ordenes', App\Http\Controllers\RequerimientoController::class);
 

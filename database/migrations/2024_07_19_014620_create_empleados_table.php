@@ -11,22 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('empleados', function (Blueprint $table) {
             $table->id();
+            $table->integer("documento");
             $table->string("nombres");
             $table->string("apellidos");
-            $table->integer("documento");
+            $table->string("cargo");
+            $table->string("direccion");
             $table->string("telefono");
-            $table->string("barrio");
-            $table->integer("calle");
-            $table->integer("poste");
-            $table->string("sucursal");
-            $table->string("estado");
-            $table->unsignedBigInteger("servicio_id")->constrained();
+            $table->foreignId("user_id")->constrained()
+            ->references("id")
+            ->on("users");
+            $table->foreignId("empresa_id")->constrained()
+            ->references("id")
+            ->on("empresas");
             $table->timestamps();
-
-            $table->foreign("servicio_id")->refences("id")
-              ->on("servicios");
         });
     }
 
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('empleados');
     }
 };

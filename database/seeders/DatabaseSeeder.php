@@ -12,14 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(10)->create();
-        \App\Models\Servicio::factory(5)->create();
-        \App\Models\Cliente::factory(50)->create();
-        \App\Models\Material::factory(10)->create();
+         //Crear un usuario administrador
+         \App\Models\User::factory(3)->create([
+            'name' => 'Administrador del sistema',
+            'rol' => 'admin'
+        ]);
 
-         \App\Models\User::factory()->create([
-             'name' => 'Administrador',
-             'email' => 'admin@tvmojana.com',
-         ]);
+        //Crear 10 usuarios de empleados 
+        \App\Models\User::factory(5)->create();
     }
+    
 }

@@ -58,7 +58,7 @@
           <td><input
             type="text"
             class="grow"
-            disabled placeholder="{{$cliente -> servicio_id}}" /></td>
+            disabled placeholder="{{$cliente->servicio->nombre}}" /></td>
         </tr>
         <tr>
           <th class="text-end">Apellidos</th>
@@ -75,7 +75,7 @@
           <td><input
             type="text"
             class="grow"
-            disabled placeholder="{{$cliente -> estado}}"/><//></td>
+            disabled placeholder=""/><//></td>
         </tr>
         <tr>
           <th class="text-end">Documento</th>

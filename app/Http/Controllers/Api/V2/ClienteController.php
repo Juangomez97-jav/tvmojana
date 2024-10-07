@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
+    public function __construct()
+    {
+        //Sólo los usuarios autenticados y rol admin pueden acceder a todas las rutas de este controlador
+        //los usuarios autenticados y rol diferente de admin pueden acceder únicamente a la ruta index de este controlador
+        $this->middleware('auth:sanctum'); //Tipo de autenticación: sanctum (token)
+        $this->middleware('admin')->except('index');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -30,8 +37,8 @@ class ClienteController extends Controller
         'barrio'=>['required','string','max:20'],
         'calle'=>['required','integer','max:3'],
         'poste'=>['required','integer','max:4'],
-        'sucursal'=>['required','string','max:15'],
-        'servicio_id'=>['required','integer','min:1'],
+        'empresa_id'=>['required','integer','exists:empresas,id'],
+        'servicio_id'=>['required','integer','exists:servicios,id'],
         ]);
 
         //Guardar datos
@@ -67,8 +74,8 @@ class ClienteController extends Controller
             'barrio'=>['required','string','max:20'],
             'calle'=>['required','integer','max:3'],
             'poste'=>['required','integer','max:4'],
-            'sucursal'=>['required','string','max:15'],
-            'servicio_id'=>['required','integer','min:1'],
+            'empresa_id'=>['required','integer','exists:empresas,id'],
+            'servicio_id'=>['required','integer','exists:servicios,id'],
             ]);
     
             //Actualizar datos

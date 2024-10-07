@@ -17,16 +17,16 @@ class ClienteFactory extends Factory
     public function definition(): array
     {
         return [
+            'documento' =>fake()->numberBetween(20000000, 1999999999),
             'nombres' =>fake()->word(),
             'apellidos' =>fake()->word(),
-            'documento' =>fake()->numberBetween(20000000, 1999999999),
             'telefono' =>fake()->numberBetween(3100000000, 3249999999),
             'barrio'=>fake()->word(),
             'calle'=>fake()->numberBetween(1, 10),
             'poste'=>fake()->numberBetween(1, 450),
-            'sucursal'=>fake()->word(),
-            'estado'=>fake()->word(),
-            'servicio_id'=>now(),
+            'correo' => fake()->unique()->safeEmail(),
+            'empresa_id'=>fake()->numberBetween(1, 5),
+            'servicio_id'=>fake()->numberBetween(1, 10),
         
         ];
     }
