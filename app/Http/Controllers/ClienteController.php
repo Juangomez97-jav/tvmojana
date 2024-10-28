@@ -19,7 +19,8 @@ class ClienteController extends Controller
     {
         $servicios = Servicio::orderBy('nombre')->get();
         $clientes = Cliente::orderBy('nombres')->get();
-        return view('clientes.recaudo', ['clientes' => $clientes,'servicios'=>$servicios]); 
+        $empresas = Empresa::orderBy('nombre')->get();
+        return view('clientes.index', ['clientes' => $clientes,'servicios'=>$servicios,'empresas'=>$empresas]); 
     }
      
 
@@ -29,11 +30,12 @@ class ClienteController extends Controller
     public function create()
     {
         $servicios = Servicio::orderBy('nombre')->get();
+        $empresas = Empresa::orderBy('nombre')->get();
         //si no existen servicioss, redirigir a la vista de creación de servicios
         if ($servicios->isEmpty()) {
             return redirect()->route('servicios.create')->with('info', 'Primero debes crear un servicio');
         }
-        return view('clientes.create', ['servicios' => $servicios]);
+        return view('clientes.create', ['servicios' => $servicios, 'empresas'=>$empresas]);
     }
 
     /**
@@ -56,10 +58,11 @@ class ClienteController extends Controller
      * Show the form for editing the specified resource.
      */
 
-    public function edit(Reuest $request)
+    public function edit(Cliente $cliente)
     {
         $servicios = Servicio::all();
-        return view('clientes.edit', ['cliente' => $cliente, 'servicio' => $servicio]);
+        $empresas = Empresa::all();
+        return view('clientes.edit', ['cliente' => $cliente, 'servicios' => $servicios, 'empresas'=>$empresas]);
     }
 
     /**
@@ -68,7 +71,8 @@ class ClienteController extends Controller
     public function update(Request $request, Cliente $cliente)
     {
         $cliente->update($request->all());
-        return redirect()->route('clientes.index')->with('info', 'Cliente actualizado con éxito');
+        return redirect()->route('clientes.index')
+        ->with('info', 'Cliente actualizado con éxito');
     }
 
     /**
@@ -77,6 +81,7 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
-        return redirect()->route('clientess.index')->with('info', 'Cliente eliminado con éxito');
+        return redirect()->route('clientes.index')
+        ->with('info', 'Cliente eliminado con éxito');
     }
 }

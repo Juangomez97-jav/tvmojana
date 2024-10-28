@@ -33,7 +33,7 @@
                 {{-- Nombre --}}
                 <div class="form-control">
                     <label class="label">
-                    <span class="label-text">Nombre</span>
+                    <span class="label-text">Nombre del servicio</span>
                     </label>
                     <input type="text" name="nombre" value="{{ $servicio->nombre }}" placeholder="Nombre del producto" class="input input-bordered" required />
                 </div>

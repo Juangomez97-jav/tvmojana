@@ -9,17 +9,6 @@
               <h1 class="text-2xl font-bold">INICIAR SESIÓN</h1>
             </div>
           </div>
-        <!-- Sucursal -->
-    <!--<div class="mt-4">
-        <form>
-           <label>Empresa</label>
-               <select name="empresa" id="suc">
-                  <option value="__('majagual')">majagua</option>
-                  <option value="__('guaranda')">,guaranda</option>
-                </select>
-       </form>
-    </div>-->
-
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />

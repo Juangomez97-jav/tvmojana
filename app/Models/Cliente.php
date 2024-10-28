@@ -11,8 +11,23 @@ class Cliente extends Model
     
     protected $fillable=["documento","nombres","apellidos","telefono","barrio","calle","poste","correo","empresa_id","servicio_id"];
 
-    public function estados()
+    public function estado()
     {
         return $this->belongsToMany(Estado::class);
+    }
+
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class);
+    }
+
+    public function factura()
+    {
+        return $this->belongsTo(Factura::class);
+    }
+
+    public function servicio()
+    {
+        return $this->belongsTo(Servicio::class);
     }
 }

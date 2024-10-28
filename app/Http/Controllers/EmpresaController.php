@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
 {
+    public function __construct()
+    {
+        //Sólo los usuarios autenticados y rol admin pueden acceder a todas las rutas de este controlador
+        //los usuarios autenticados y rol diferente de admin pueden acceder únicamente a la ruta index de este controlador
+        $this->middleware('auth');
+        $this->middleware('admin')->except('index');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -31,7 +38,8 @@ class EmpresaController extends Controller
     public function store(Request $request)
     {
         Empresa::create($request->all());
-        return to_route('empresas.index')->with('info', 'Empresa creada con éxito');
+        return to_route('empresas.index')
+        ->with('info', 'Empresa creada con éxito');
     }
 
     /**
@@ -56,7 +64,8 @@ class EmpresaController extends Controller
     public function update(Request $request, Empresa $empresa)
     {
         $empresa->update($request->all());
-        return to_route('empresas.index')->with('info', 'Empresa actualizada con éxito');
+        return to_route('empresas.index')
+        ->with('info', 'Empresa actualizada con éxito');
     }
 
     /**
@@ -65,6 +74,7 @@ class EmpresaController extends Controller
     public function destroy(Empresa $empresa)
     {
         $empresa->delete();
-        return to_route('empresas.index')->with('info', 'Empresa eliminada con éxito');
+        return to_route('empresas.index')
+        ->with('info', 'Empresa eliminada con éxito');
     }
 }

@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class MaterialController extends Controller
 {
+    public function __construct()
+    {
+        //Sólo los usuarios autenticados y rol admin pueden acceder a todas las rutas de este controlador
+        //los usuarios autenticados y rol diferente de admin pueden acceder únicamente a la ruta index de este controlador
+        $this->middleware('auth');
+        $this->middleware('admin')->except('index');
+    }
     /**
      * Display a listing of the resource.
      */

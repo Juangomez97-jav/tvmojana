@@ -19,4 +19,4 @@ Route::apiResource("v1/servicio",App\Http\Controllers\Api\v1\ServicioController:
 Route::apiResource("v2/cliente",App\Http\Controllers\Api\v2\ClienteController::class);
 
 //Ruta login para obtener el token
-Route::post('v2/login', [AuthController::class, 'login']);
+//Route::post('v2/login', [AuthController::class, 'login']);

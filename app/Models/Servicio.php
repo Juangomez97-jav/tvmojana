@@ -11,13 +11,13 @@ class Servicio extends Model
 
     protected $fillable=["nombre","descripcion","precio","estado","empresa_id","empleado_id"];
 
-    public function empresas()
+    public function empresa()
     {
-        return $this->belongsToMany(Empresa::class)->withPivot('nombre');  
+        return $this->belongsTo(Empresa::class); 
     }
 
-    public function empleados()
+    public function empleado()
     {
-        return $this->hasMany(Empleado::class);  
+        return $this->belongsTo(Empleado::class);  
     }
 }

@@ -29,7 +29,5 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('servicios');
-       // $table->dropForeign(['empresa_id']);
-        //$table->dropForeign(['empleado_id']);
     }
 };

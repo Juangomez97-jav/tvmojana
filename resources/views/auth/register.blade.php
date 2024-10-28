@@ -1,5 +1,20 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+@extends('layouts.app2')
+@section('titulo', 'Registro de nuevo usuario')
+@section('cabecera', 'Registro de nuevo usuario')
+
+@section('contenido') 
+    <div class="flex justify-center">
+        <div class="card w-96 shadow-2xl bg-base-100">
+            <div class="card-body">
+                {{-- Mostrar mensajes de error --}}
+                <div>
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <div class="badge badge-warning">{{$error}}</div>
+                        @endforeach
+                    @endif
+                </div>
+    <form action="{{ route('register') }}" method="POST">
         @csrf
 
         <!-- Name -->
@@ -14,6 +29,20 @@
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Address -->
+        <div class="mt-4">
+            <x-input-label for="address" :value="__('Address')" />
+            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autocomplete="address" />
+            <x-input-error :messages="$errors->get('address')" class="mt-2" />
+        </div>
+
+        <!-- Rol -->
+        <div class="mt-4">
+            <x-input-label for="rol" :value="__('Rol')" />
+            <x-text-input id="rol" class="block mt-1 w-full" type="text" name="rol" :value="old('rol')" required autofocus autocomplete="rol" />
+            <x-input-error :messages="$errors->get('rol')" class="mt-2" />
         </div>
 
         <!-- Password -->
@@ -49,4 +78,7 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</div>
+</div>
+</div>
+@endsection

@@ -10,8 +10,13 @@ class Empresa extends Model
     use HasFactory;
     protected $fillable=["nombre","telefono","direccion","correo"];
 
-    public function empleados()
+    public function empleado()
     {
         return $this->hasMany(Empleado::class);  
+    }
+
+    public function servicio()
+    {
+        return $this->belongsToMany(Servicio::class);  
     }
 }

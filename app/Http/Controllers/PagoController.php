@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pago;
+use App\Models\Factura;
 use Illuminate\Http\Request;
 
 class PagoController extends Controller
@@ -12,7 +13,9 @@ class PagoController extends Controller
      */
     public function index()
     {
-        //
+        $pagos = Pago::orderBy('valor_pago')->get();
+        $facturas = Factura::orderBy('nombre')->get();
+        return view('pagos.index', ['facturas' => $facturas]);
     }
 
     /**
@@ -20,7 +23,9 @@ class PagoController extends Controller
      */
     public function create()
     {
-        //
+        $facturas = Factura::orderBy('nombre')->get();
+        $pagos = Pago::orderBy('nombre')->get();
+        return view('pagos.create',['pagos'=>$pagos,'facturas' => $facturas]);
     }
 
     /**

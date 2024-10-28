@@ -28,7 +28,7 @@
                         <td class="flex space-x-2">
                             <a href="{{ route('empresas.edit', $empresa->id) }}" class="btn btn-warning btn-xs">Editar</a>
                             {{-- si la empresa no tiene empleados asociados, se puede eliminar --}}
-                            @if($empresa->empleados->count() == 0)
+                            @if($empresa->empleado->count() == 0)
                               <form action="{{ route('empresas.destroy', $empresa->id) }}" method="POST">
                                   @csrf
                                   @method('DELETE')

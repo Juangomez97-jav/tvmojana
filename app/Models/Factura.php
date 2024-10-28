@@ -10,23 +10,28 @@ class Factura extends Model
     use HasFactory;
     protected $fillable=["nombre","descripcion","precio","cliente_id","estado_id","servicio_id"];
 
-    public function clientes()
+    public function cliente()
     {
-        return $this->hasMany(Cliente::class);  
+        return $this->belongsTo(Cliente::class);  
     }
 
-    public function estados()
+    public function estado()
     {
-        return $this->hasMany(Estado::class);
+        return $this->belongsTo(Estado::class);
     }
 
-    public function servicios()
+    public function servicio()
     {
-        return $this->hasMany(Servicio::class);  
+        return $this->belongsTo(Servicio::class);  
     }
 
-    public function pagos()
+    public function pago()
     {
-        return $this->hasMany(Pago::class);  
+        return $this->belongsTo(Pago::class);  
+    }
+
+    public function empresa()
+    {
+        return $this->belongsTo(Empresa::class);
     }
 }

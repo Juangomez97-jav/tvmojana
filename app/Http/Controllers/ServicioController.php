@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class ServicioController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      */
@@ -29,7 +30,7 @@ class ServicioController extends Controller
         if ($empresas->isEmpty()) {
             return redirect()->route('empresas.create')->with('info', 'Primero debes crear una empresa');
         }
-        return view('servicios.create', ['empresas' => $empresas],['empleados' => $empleados]);
+        return view('servicios.create', ['empresas' => $empresas, 'empleados' => $empleados]);
     }
 
     /**

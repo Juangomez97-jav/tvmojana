@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\PagoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,10 @@ Route::resource('recaudo', ClienteController::class);
 
 Route::resource('empresas', EmpresaController::class);
 
+Route::resource('facturas', FacturaController::class);
+
+Route::resource('pagos', PagoController::class);
+
 Route::resource('ordenes', App\Http\Controllers\RequerimientoController::class);
 
 
@@ -36,7 +42,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 

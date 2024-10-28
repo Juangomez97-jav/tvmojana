@@ -14,7 +14,7 @@
                         <label class="label" for="empresa_id">
                             <span class="label-text">Empresa</span>
                         </label>
-                        <select name="servicio_id" class="select select-bordered">
+                        <select name="empresa_id" class="select select-bordered">
                             @foreach ($empresas as $empresa)
                                 <option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
                             @endforeach

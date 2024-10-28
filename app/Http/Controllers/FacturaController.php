@@ -3,16 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Factura;
+use App\Models\Cliente;
+use App\Models\Servicio;
+use App\Models\Empresa;
+use App\Models\Estado;
 use Illuminate\Http\Request;
 
 class FacturaController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $estados = Estado::orderBy('nombre_estado')->get();
+        $servicios = Servicio::orderBy('nombre')->get();
+        $clientes = Cliente::orderBy('nombres')->get();
+        $empresas = Empresa::orderBy('nombre')->get();
+        $facturas = Factura::orderBy('nombre')->get();
+        return view('facturas.index', ['facturas' => $facturas,'clientes'=>$clientes,'servicios'=>$servicios,'empresas'=>$empresas,'estados'=>$estados]);
     }
 
     /**
@@ -20,7 +30,11 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        //
+        $estados = Estado::orderBy('nombre_estado')->get();
+        $clientes = Cliente::orderBy('nombres')->get();
+        $servicios = Servicio::orderBy('nombre')->get();
+        $empresas = Empresa::orderBy('nombre')->get();
+        return view('facturas.create',['clientes'=>$clientes,'servicios' => $servicios, 'empresas'=>$empresas,'estados'=>$estados]);
     }
 
     /**
@@ -28,7 +42,8 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Factura::create($request->all());
+        return redirect()->route('facturas.index')->with('info', 'factura creada con éxito');
     }
 
     /**

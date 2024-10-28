@@ -5,10 +5,6 @@
 @section('contenido')
 <br>
 <div class="grid grid-cols-1 ms:grid-cols-1 md:grid-cols-1 lg:grid-cols-1">
-<div class="text-center">
-      <h1 class="text-2xl font-bold">SERVICIOS</h1>
-</div>
-<br>
 <div>
 <ul>
    <div class="overflow-x-auto">

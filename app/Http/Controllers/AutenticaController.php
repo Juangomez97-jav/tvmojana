@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class AutenticaController extends Controller
 {
-    public function __construct()
-    {
-        //Sólo los usuarios autenticados pueden acceder a los métodos perfil, perfilUpdate y passwordUpdate
-        $this->middleware('auth')->only(['perfil', 'perfilUpdate', 'passwordUpdate']);
-    }
     
     public function registro(Request $request){
         $request->validate([
@@ -99,12 +94,12 @@ class AutenticaController extends Controller
     public function passwordUpdate(Request $request, User $user){
         $request->validate([
             'password_old' => 'required',
-            'password' => 'required|min:5|confirmed'
+            'password' => 'required|min:8|confirmed'
         ],
         [
             'password_old.required' => 'La contraseña actual es obligatoria',
             'password.required' => 'La contraseña es obligatoria',
-            'password.min' => 'La contraseña debe tener al menos 5 caracteres',
+            'password.min' => 'La contraseña debe tener al menos 8 caracteres',
             'password.confirmed' => 'Las contraseñas no coinciden'
         ]);
         //Validar si la contraseña actual es correcta

@@ -10,7 +10,7 @@
       <div class="dropdown dropdown-hover">
   <div tabindex="0" role="button" class="btn m-1">Movimientos</div>
   <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                <li><a href="{{'recaudo'}}">Recaudo</a></li>
+                <li><a href="{{'pagos'}}">Recaudo</a></li>
                 <li><a href="{{('ordenes')}}">Ordenes del dia</a></li>
                 <li><a>Activar servicios</a></li>
                 <li><a>Susender servicios</a></li>
@@ -32,8 +32,8 @@
 <div class="dropdown dropdown-hover">
   <div tabindex="0" role="button" class="btn m-1">Clientes</div>
   <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-            <li><a>Inscribir cliente</a></li>
-            <li><a>Editar cliente</a></li>
+            <li><a href="{{'clientes'}}">Inscribir cliente</a></li>
+            <li><a href="{{'clientes.edit'}}">Editar cliente</a></li>
             <li><a>Eliminar cliente</a></li>
           </ul>
         </div>
@@ -42,7 +42,7 @@
   <div tabindex="0" role="button" class="btn m-1">Facturas</div>
   <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
   
-            <li><a>Crear factura</a></li>
+            <li><a href="{{'facturas'}}">Crear factura</a></li>
             <li><a>Editar factura</a></li>
             <li><a>Eliminar factura</a></li>
             <li><a>Facturacion masiva</a></li>
